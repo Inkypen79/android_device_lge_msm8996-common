@@ -46,7 +46,7 @@ on init
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
-    mount_all /vendor/etc/fstab.qcom
+    mount_all /vendor/etc/fstab.qcom --early
     # These directories have different labeling in stock rom.
     # Jumping between stock and LineageOS needs restorecon -F
     # to apply our labeling.
@@ -99,6 +99,9 @@ on fs
     chown system system /persist/rfs/mdm/tn
     chown system system /persist/rfs/apq
     chown system system /persist/rfs/apq/gnss
+
+on late-fs
+    mount_all /vendor/etc/fstab.qcom --late
 
 on post-fs
     write /sys/devices/platform/lge-qfprom/sec_read 0
