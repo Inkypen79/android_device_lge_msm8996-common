@@ -195,7 +195,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.redir_party_num=1 \
     persist.radio.sib16_support=1 \
     persist.vendor.radio.mt_sms_ack=30 \
-    ro.telephony.call_ring.multiple=false
+    ro.telephony.call_ring.multiple=false \
+    ro.telephony.default_network=22
 
 # Radio - Data/RMNet
 PRODUCT_PROPERTY_OVERRIDES += \
